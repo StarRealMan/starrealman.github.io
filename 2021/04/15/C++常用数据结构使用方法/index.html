@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/system/ico3232.ico">
+  <title>C++常用数据结构使用方法 | StarBlog!</title>
+  <meta name="author" content="Star YDY" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="" />
+  
+  <meta name="description" content="最近为了找实习，简单地复习了一下C++常用的数据结构，在此做个笔记。 vector首先是最常见的vector，和数组很类似，可以使用索引进行读写操作。 常用方法：    1234567891011myvector(size, a)resize(size)reserve(spacesize)push_back(a)pop_back()myvector[i]size()clear()empty()re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++常用数据结构使用方法">
+<meta property="og:url" content="http://starydy.xyz/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="StarBlog!">
+<meta property="og:description" content="最近为了找实习，简单地复习了一下C++常用的数据结构，在此做个笔记。 vector首先是最常见的vector，和数组很类似，可以使用索引进行读写操作。 常用方法：    1234567891011myvector(size, a)resize(size)reserve(spacesize)push_back(a)pop_back()myvector[i]size()clear()empty()re">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://starydy.xyz/images/system/ico3232.ico">
+<meta property="article:published_time" content="2021-04-15T14:38:00.000Z">
+<meta property="article:modified_time" content="2021-08-20T12:57:11.562Z">
+<meta property="article:author" content="Star YDY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://starydy.xyz/images/system/ico3232.ico">
+<meta name="twitter:site" content="@StaReallyMan">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="StarBlog!" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">StarBlog!</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-book"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/comment-policy/"><i class="fa fa-file"></i>评论政策</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/139101336">Bilibili</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/StarRealMan/">Github</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>StarBlog!</h2> <br />
+                        <span>Blog for starydy</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">C++常用数据结构使用方法</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2021-04-15
+                        <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
+                        <i class="fa fa-user"></i> 作者 Star YDY
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.88K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">2.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-unordered-set"><span class="toc-number">3.</span> <span class="toc-text">set, unordered_set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-lt-typeA-typeB-gt-unordered-map-lt-typeA-typeB-gt"><span class="toc-number">4.</span> <span class="toc-text">map&lt;typeA, typeB&gt;, unordered_map&lt;typeA, typeB&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stack"><span class="toc-number">5.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue"><span class="toc-number">6.</span> <span class="toc-text">queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deque"><span class="toc-number">7.</span> <span class="toc-text">deque</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#heap"><span class="toc-number">8.</span> <span class="toc-text">heap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#priority-queue"><span class="toc-number">9.</span> <span class="toc-text">priority_queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-number">10.</span> <span class="toc-text">string</span></a></li></ol>
+                    </div>
+                
+                <hr />
+                <p>最近为了找实习，简单地复习了一下C++常用的数据结构，在此做个笔记。</p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector<typeA></h2><p>首先是最常见的vector，和数组很类似，可以使用索引进行读写操作。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">myvector(size, a)</span><br><span class="line">resize(size)</span><br><span class="line">reserve(spacesize)</span><br><span class="line">push_back(a)</span><br><span class="line">pop_back()</span><br><span class="line">myvector[i]</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">empty()</span><br><span class="line">reverse(myvector.begin(), myvector.end())</span><br><span class="line">sort(myvector.begin(), myvector.end())</span><br></pre></td></tr></table></figure><br>迭代器使用begin()、end()进行正向遍历，由于不支持减一操作，使用rbegin()、rend()进行反向遍历，其他数据结构都类似。</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list<typeA></h2><p>实现了链表的结构，不同于vector，在进行插入删除操作时效率很高，但是在进行随机读取时效率较低。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mylist(size, a)</span><br><span class="line">push_back(a)</span><br><span class="line">push_front(a)</span><br><span class="line">pop_back()</span><br><span class="line">pop_front()</span><br><span class="line">back()</span><br><span class="line">front()</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">empty()</span><br><span class="line">insert(it, num)</span><br><span class="line">erase(it, num)</span><br></pre></td></tr></table></figure></p>
+<h2 id="set-unordered-set"><a href="#set-unordered-set" class="headerlink" title="set, unordered_set"></a>set<typeA>, unordered_set<typeA></h2><p>使用红黑树实现的set，主要用于保留一系列<strong>不重复</strong>的值，并且进行了排序，查找具有O(logn)的复杂度。<br>使用哈希表实现的unordered_set，基本方法与set相同，但是不具备顺序，查找具有O(1)的复杂度。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">insert(a)</span><br><span class="line">erase(a)</span><br><span class="line">count()		&#x2F;&#x2F;可以用来查找值是否存在</span><br><span class="line">find()		&#x2F;&#x2F;同样用于查找是否存在，但是使用的是迭代器，通常语法为：set.find(x) !&#x3D; end，若为真，则代表存在x。</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">empty()</span><br><span class="line">&#x2F;&#x2F;遍历使用iterator实现：</span><br><span class="line">set&lt;typeA&gt;::iterator it &#x3D; myset.begin();</span><br><span class="line">while(it !&#x3D; myset.end())</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; \*it &lt;&lt; endl;</span><br><span class="line">	it++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="map-lt-typeA-typeB-gt-unordered-map-lt-typeA-typeB-gt"><a href="#map-lt-typeA-typeB-gt-unordered-map-lt-typeA-typeB-gt" class="headerlink" title="map&lt;typeA, typeB&gt;, unordered_map&lt;typeA, typeB&gt;"></a>map&lt;typeA, typeB&gt;, unordered_map&lt;typeA, typeB&gt;</h2><p>使用红黑树实现的map，主要用于保留一系列<strong>不重复</strong>的键值对，即可以使用键进行索引，并且对键进行了排序，查找具有O(logn)的复杂度。<br>使用哈希表实现的unordered_map，基本方法与map相同，但是不具备顺序，查找具有O(1)的复杂度。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">insert(make_pair(key, value))</span><br><span class="line">erase()</span><br><span class="line">mymap[key]	&#x2F;&#x2F;使用key作为索引进行读写map的 操作</span><br><span class="line">count()		&#x2F;&#x2F;可以用来查找值是否存在</span><br><span class="line">find()		&#x2F;&#x2F;同样用于查找是否存在，但是使用的是迭代器，通常语法为：map.find(x) !&#x3D; end，若为真，则代表存在x</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">empty()</span><br><span class="line">&#x2F;&#x2F;遍历使用iterator实现：</span><br><span class="line">map&lt;typeA&gt;::iterator it &#x3D; mymap.begin();</span><br><span class="line">while(it !&#x3D; mymap.end())</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; it-&gt;first &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">	it++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack<typeA></h2><p>最常见的栈结构，一种先入后出的结构，但是不具有迭代器，主要用于存储某些状态的特定元素使用。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(a)</span><br><span class="line">pop()</span><br><span class="line">top()</span><br><span class="line">size()</span><br><span class="line">empty()</span><br><span class="line">&#x2F;&#x2F;由于没有迭代器，所以不能进行遍历，唯一方法是遍历容器内容，并移除访问过的每一个元素</span><br></pre></td></tr></table></figure></p>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue<typeA></h2><p>最常见的队列结构，一种先入先出的结构，但是不具有迭代器，主要用于某种状态下待处理元素的记录，常见于BFS算法中。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(a)</span><br><span class="line">pop()</span><br><span class="line">front()</span><br><span class="line">back()</span><br><span class="line">size()</span><br><span class="line">empty()</span><br><span class="line">&#x2F;&#x2F;与stack一样没有迭代器，所以不能进行遍历，唯一方法是遍历容器内容，并移除访问过的每一个元素</span><br></pre></td></tr></table></figure></p>
+<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque<typeA></h2><p>与queue相似的双向队列结构，能够进行首尾的读取，加入与弹出，拥有迭代器。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">push_back(a)</span><br><span class="line">pop_back()</span><br><span class="line">push_front(a)</span><br><span class="line">pop_front()</span><br><span class="line">back()</span><br><span class="line">front()</span><br><span class="line">at(i)等价于[i]</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">empty()</span><br></pre></td></tr></table></figure></p>
+<h2 id="heap"><a href="#heap" class="headerlink" title="heap"></a>heap</h2><p>实际上C++并没有堆这个类，使用的是对另一个数据结构的迭代器进行建堆操作来创建一个堆。<br>堆使用完全二叉树实现的，大根堆即代表根节点大于（或等于）叶子节点，小根堆同理。堆方便指出就在于便于进行排序（处在堆顶的一定是最大值）。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;typeA&gt; myvector;</span><br><span class="line">make_heap(myvector.begin(), myvector.end());				&#x2F;&#x2F;默认为大根堆</span><br><span class="line">make_heap(myvector.begin(), myvector.end(), greater&lt;type&gt;);		&#x2F;&#x2F;创建小根堆，创建堆会改变原始数据结构的顺序为堆树的层次遍历</span><br><span class="line">myvector.push_back(a);</span><br><span class="line">push_heap(myvector.begin(), myvector.end());				&#x2F;&#x2F;push操作先对原数据进行</span><br><span class="line">pop_heap(myvector.begin(), myvector.end());				&#x2F;&#x2F;pop操作先对堆进行</span><br><span class="line">myvector.pop_back(a);</span><br><span class="line">sort_heap(myvector.begin(), myvector.end());				&#x2F;&#x2F;核心操作，进行堆排序（大根堆进行升序排序，小根堆进行降序排序）</span><br></pre></td></tr></table></figure></p>
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>C++没有堆，但是我们还可以通过priority_queue来实现有排序功能的数据结构，当然，内部结构还是堆的原理。<br>priority_queue的方法与上面的队列queue基本相同，只不过在我们把新元素入队时，会自动更新这个堆，使得我们每次出队的元素都是当前队列最大/最小的。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; up;		&#x2F;&#x2F;升序队列（小根堆）</span><br><span class="line">priority_queue &lt;int, vector&lt;int&gt;, less&lt;int&gt;&gt; down;		&#x2F;&#x2F;降序队列（大根堆）</span><br><span class="line">push(a)</span><br><span class="line">pop()</span><br><span class="line">front()</span><br><span class="line">back()</span><br><span class="line">size()</span><br><span class="line">empty()</span><br></pre></td></tr></table></figure></p>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>不同于C语言中使用char*或char[]来维护字符串，C++使用string类进行字符串的操作，其中之前C语言对于char*字符串的操作方法大多数也适用于string类型。</p>
+<p>常用方法：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mystring(&quot;Hello&quot;)</span><br><span class="line">mystring(size, &#39;A&#39;)				&#x2F;&#x2F;注意C++中 &#39;A&#39;表示一个字符（char），&quot;A&quot;表示一个字符串（char\*）</span><br><span class="line">char* mychar &#x3D; &quot;Hello&quot;;				&#x2F;&#x2F;char* 与 string的转换：</span><br><span class="line">mystring &#x3D; mychar;</span><br><span class="line">mychar &#x3D; mystring.c_str();</span><br><span class="line">mystring &#x3D; mystring1 + mystring2;		&#x2F;&#x2F;字符串的拼接：</span><br><span class="line">mystring.append(mystring1);</span><br><span class="line">substring &#x3D; mystring.substr(start, size);	&#x2F;&#x2F;提取、插入、删除、替换子串：</span><br><span class="line">newstring &#x3D; mystring.insert(start, substring);</span><br><span class="line">mystring.erase(start, size);</span><br><span class="line">mystring.replace(start, size, substring);</span><br><span class="line">char mychar &#x3D; mystring[i];			&#x2F;&#x2F;索引读写：</span><br><span class="line">&#x2F;&#x2F;与其他STL数据结构类似，也可以使用迭代器进行string的操作。</span><br></pre></td></tr></table></figure></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://starydy.xyz/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://starydy.xyz/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/";
+            const title         = "「C++常用数据结构使用方法」";
+            const excerpt       = `最近为了找实习，简单地复习了一下C++常用的数据结构，在此做个笔记。
+vector首先是最常见的vector，和数组很类似，可以使用索引进行读写操作。
+常用方法：    1234567891011myvector(size, a)re...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-08-20</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 开启新的旅程！" href="/2020/12/14/开启新的旅程！/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 老婆不够D？那就自己造！" href="/2021/07/10/老婆不够D？那就自己造！/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+            <div id="disqus_thread" class="post-comments lazy-load"></div>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://starydy.xyz/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '2021/04/15/C++常用数据结构使用方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    var load_comm = () => {
+        if (typeof DISQUS == 'undefined') {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://starydyxyz.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        } else {
+            DISQUS.reset({
+                reload: true,
+                config: function () {  
+                    this.page.url = 'http://starydy.xyz/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = '2021/04/15/C++常用数据结构使用方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                }
+            });
+        }
+    };
+    
+</script>
+<script async id="dsq-count-scr" src="//starydyxyz.disqus.com/count.js"></script>
+
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/system/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">1.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">2.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-unordered-set"><span class="toc-number">3.</span> <span class="toc-text">set, unordered_set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-lt-typeA-typeB-gt-unordered-map-lt-typeA-typeB-gt"><span class="toc-number">4.</span> <span class="toc-text">map&lt;typeA, typeB&gt;, unordered_map&lt;typeA, typeB&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stack"><span class="toc-number">5.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue"><span class="toc-number">6.</span> <span class="toc-text">queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deque"><span class="toc-number">7.</span> <span class="toc-text">deque</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#heap"><span class="toc-number">8.</span> <span class="toc-text">heap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#priority-queue"><span class="toc-number">9.</span> <span class="toc-text">priority_queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string"><span class="toc-number">10.</span> <span class="toc-text">string</span></a></li></ol>
+        
+    </div>
+    <div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height=130 src="//cyixlq.gitee.io/iframe/#/tencent/8068969700/false"></iframe>
+    </div>
+</aside>
+
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8E%A7%E5%88%B6/">控制</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E6%95%B0/">物数</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><span class="category-list-count">4</span></li></ul>
+  </aside>
+
+
+                
+                    
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/08/20/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%E4%BA%8C%E4%B8%89%E4%BA%8B/"><i class="fa  fa-book"></i> 矩阵分解二三事</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/07/10/%E8%80%81%E5%A9%86%E4%B8%8D%E5%A4%9FD%EF%BC%9F%E9%82%A3%E5%B0%B1%E8%87%AA%E5%B7%B1%E9%80%A0%EF%BC%81/"><i class="fa  fa-book"></i> 老婆不够D？那就自己造！</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/04/15/C++%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><i class="fa  fa-book"></i> C++常用数据结构使用方法</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2020/12/14/%E5%BC%80%E5%90%AF%E6%96%B0%E7%9A%84%E6%97%85%E7%A8%8B%EF%BC%81/"><i class="fa  fa-book"></i> 开启新的旅程！</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2020/11/28/%E6%AF%95%E8%AE%BE%E5%BC%80%E5%9D%91%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%A4%A7%E5%AE%B6%E5%85%B3%E6%B3%A8/"><i class="fa  fa-book"></i> 毕设开坑，欢迎大家关注</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:starydyxyz@gmail.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/StaReallyMan"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/StarRealMan"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2021 Star YDY 版权所有.</li>
+                            <li>本站已萌萌地运行了<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":180,"height":300,"position":"right","hOffset":0,"vOffset":100},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
